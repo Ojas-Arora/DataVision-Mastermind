@@ -69,7 +69,8 @@ st.markdown("""
     }
     h1, h2, h3, h4, h5, h6{
         color: black;
-        text-align: center;       
+        text-align: center;
+        text-transform: uppercase;       
     }
     label{
         text-align: center;       
