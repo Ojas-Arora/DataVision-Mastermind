@@ -257,6 +257,7 @@ st.markdown("""
     }
     </style>
     <div class="footer">
-        <p>Developed by Ojas Arora with ❤️ using Streamlit</p>
+        <p>Developed by Ojas Arora with ❤️ using <a href="https://streamlit.io/" target="_blank">Streamlit</a></p>
     </div>
 """, unsafe_allow_html=True)
+
