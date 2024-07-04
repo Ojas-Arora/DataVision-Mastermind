@@ -16,6 +16,7 @@ st.set_page_config(page_title="ML Dataset Comparison", page_icon="📊", layout=
 st.markdown("""
     <style>
     .main {
+        background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
         background-color: #f0f2f6;
         color: #333;
         font-family: 'Roboto', sans-serif;
