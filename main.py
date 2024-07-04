@@ -194,7 +194,7 @@ y_pred = clf.predict(X_test)
 acc = accuracy_score(y_test, y_pred)
 
 st.write(f'**CLASSIFIER:** {classifier_name}')
-st.write(f'**ACCURACY:** {acc}')
+st.write(f'**🎯ACCURACY:** {acc}')
 
 # PCA
 pca = PCA(2)
