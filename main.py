@@ -9,11 +9,10 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
-st.title('Streamlit Example')
+st.title('ML DATASET COMPARISON')
 
 st.write("""
-# Explore different classifiers and datasets
-Which one is the best?
+# Discover the ultimate machine learning model for your dataset! Dive into our interactive tool to compare top classifiers and see which one reigns supreme
 """)
 
 dataset_name = st.sidebar.selectbox('Select Dataset', ('Iris', 'Breast Cancer', 'Wine'))
