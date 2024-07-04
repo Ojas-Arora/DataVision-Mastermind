@@ -84,18 +84,6 @@ st.markdown("""
     .sidebar-content > div {
         color: white !important;
     }
-    .stButton>button {
-        background-color: darkturquoise;
-        color: white;
-        font-size: 1rem;
-        padding: 0.5rem 1rem;
-        border-radius: 0.25rem;
-        border: none;
-        cursor: pointer;
-    }
-    .stButton>button:hover {
-        background-color: darkturquoise;
-    }
     .stAlert {
         font-size: 1.2rem;
         text-align:center;
@@ -126,12 +114,6 @@ st.markdown("""
         padding: 0.5rem;
         border-radius: 0.25rem;
         border: 1px solid #ccc;
-    }
-    .stAlert {
-        font-size: 1.2rem;
-        text-align:center;
-        padding: 1rem;
-        border-radius: 0.25rem;
     }
     .sidebar-content {
         color: white !important;
