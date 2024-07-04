@@ -10,7 +10,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
 # Set page config
-st.set_page_config(page_title="ML Dataset Comparison", page_icon="📊", layout="wide")
+st.set_page_config(page_title="ML DATASET COMPARISON", page_icon="📊", layout="wide")
 
 # Custom CSS for better styling
 st.markdown("""
@@ -116,10 +116,10 @@ st.markdown("""
         border: 1px solid #ccc;
     }
     .sidebar-content {
-        color: white !important;
+        color: white ;
     }
     .sidebar-content > div {
-        color: white !important;
+        color: white ;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -133,7 +133,7 @@ Compare top classifiers across diverse datasets to find the best performer for y
 """)
 
 dataset_name = st.sidebar.selectbox(
-    '🎯 Select Dataset', ('IRIS', 'BREAST CANCER', 'WINE'))
+    '🎯 SELECT DATASET', ('IRIS', 'BREAST CANCER', 'WINE'))
 
 st.write(f"## {dataset_name} DATASET")
 
@@ -153,8 +153,8 @@ def get_dataset(name):
     return X, y
 
 X, y = get_dataset(dataset_name)
-st.write('**Shape of dataset:**', X.shape)
-st.write('**Number of classes:**', len(np.unique(y)))
+st.write('**SHAPE OF DATASET:**', X.shape)
+st.write('**NUMBER OF CLASSES:**', len(np.unique(y)))
 
 def add_parameter_ui(clf_name):
     params = dict()
@@ -192,8 +192,8 @@ y_pred = clf.predict(X_test)
 
 acc = accuracy_score(y_test, y_pred)
 
-st.write(f'**Classifier:** {classifier_name}')
-st.write(f'**Accuracy:** {acc}')
+st.write(f'**CLASSIFIER:** {classifier_name}')
+st.write(f'**ACCURACY:** {acc}')
 
 # PCA
 pca = PCA(2)
@@ -213,19 +213,19 @@ plt.colorbar(scatter)
 st.pyplot(fig)
 
 # Adding more visual elements
-st.markdown("### Key Features")
+st.markdown("### KEY FEATURES")
 st.write("""
-- **Interactive Widgets:** Select datasets and classifiers from the sidebar to dynamically update the content.
-- **Performance Metrics:** View accuracy scores to evaluate model performance.
-- **Visualization:** PCA visualization of dataset classes for easy interpretation.
+- **INTERACTIVE WIDGETS:** Select datasets and classifiers from the sidebar to dynamically update the content.
+- **PERFORMANCE METRICES:** View accuracy scores to evaluate model performance.
+- **VISUIZATION:** PCA visualization of dataset classes for easy interpretation.
 """)
 
-st.markdown("### How to Use")
+st.markdown("### HOW TO USE")
 st.write("""
-1. **Select a Dataset:** Choose from Iris, Breast Cancer, or Wine datasets.
-2. **Choose a Classifier:** Options include K-Nearest Neighbors (KNN), Support Vector Machine (SVM), and Random Forest.
-3. **Set Parameters:** Adjust the hyperparameters for each classifier using the sliders in the sidebar.
-4. **View Results:** See the accuracy score and a PCA scatter plot of the dataset.
+1. **SELECT A DATASET:** Choose from Iris, Breast Cancer, or Wine datasets.
+2. **CHOOSE A CLASSIFIER:** Options include K-Nearest Neighbors (KNN), Support Vector Machine (SVM), and Random Forest.
+3. **SET PARAMETERS:** Adjust the hyperparameters for each classifier using the sliders in the sidebar.
+4. **VIEW RESULTS:** See the accuracy score and a PCA scatter plot of the dataset.
 """)
 
 # Adding icons
