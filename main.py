@@ -69,7 +69,7 @@ st.markdown("""
     }
     h1, h2, h3, h4, h5, h6{
         color: black;
-        text-align:center;       
+        text-align: center;       
     }
     label{
         text-align: center;       
@@ -77,6 +77,67 @@ st.markdown("""
     p{
         font-size:20px;
         text-align: center;          
+    }
+    .sidebar-content {
+        color: white !important;
+    }
+    .sidebar-content > div {
+        color: white !important;
+    }
+    .stButton>button {
+        background-color: darkturquoise;
+        color: white;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        border: none;
+        cursor: pointer;
+    }
+    .stButton>button:hover {
+        background-color: darkturquoise;
+    }
+    .stAlert {
+        font-size: 1.2rem;
+        text-align:center;
+        padding: 1rem;
+        border-radius: 0.25rem;
+    }
+    .stTextInput>div>div>input {
+        font-size: 1rem;
+        text-align:center;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        border: 1px solid #ccc;
+    }
+    .stSelectbox>div>div>select {
+        font-size: 1rem;
+        text-align:center;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        border: 1px solid #ccc;
+    }
+    .stSlider>div>div>div>div>div>div {
+        font-size: 1rem;
+        text-align:center;
+    }
+    .stNumberInput>div>div>input {
+        font-size: 1rem;
+        text-align:center;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        border: 1px solid #ccc;
+    }
+    .stAlert {
+        font-size: 1.2rem;
+        text-align:center;
+        padding: 1rem;
+        border-radius: 0.25rem;
+    }
+    .sidebar-content {
+        color: white !important;
+    }
+    .sidebar-content > div {
+        color: white !important;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -90,12 +151,12 @@ Compare top classifiers across diverse datasets to find the best performer for y
 """)
 
 dataset_name = st.sidebar.selectbox(
-    'Select Dataset', ('IRIS', 'BREAST CANCER', 'WINE'))
+    '🎯 Select Dataset', ('IRIS', 'BREAST CANCER', 'WINE'))
 
 st.write(f"## {dataset_name} DATASET")
 
 classifier_name = st.sidebar.selectbox(
-    'SELECT CLASSIFIER', ('KNN', 'SVM', 'RANDOM FOREST'))
+    '🧠 SELECT CLASSIFIER', ('KNN', 'SVM', 'RANDOM FOREST'))
 
 def get_dataset(name):
     data = None
