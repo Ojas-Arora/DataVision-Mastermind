@@ -9,25 +9,98 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
-st.title('ML DATASET COMPARISON')
+# Set page config
+st.set_page_config(page_title="ML Dataset Comparison", page_icon="📊", layout="wide")
+
+# Custom CSS for better styling
+st.markdown("""
+    <style>
+    .main {
+        background-color: #f0f2f6;
+        color: #333;
+        font-family: 'Roboto', sans-serif;
+    }
+    .block-container {
+        padding: 2rem;
+    }
+    .stButton>button {
+        background-color: darkturquoise;
+        color: white;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        border: none;
+        cursor: pointer;
+    }
+    .stButton>button:hover {
+        background-color: darkturquoise;
+    }
+    .stTextInput>div>div>input {
+        font-size: 1rem;
+        text-align:center;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        border: 1px solid #ccc;
+    }
+    .stSelectbox>div>div>select {
+        font-size: 1rem;
+        text-align:center;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        border: 1px solid #ccc;
+    }
+    .stSlider>div>div>div>div>div>div {
+        font-size: 1rem;
+        text-align:center;
+    }
+    .stNumberInput>div>div>input {
+        font-size: 1rem;
+        text-align:center;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        border: 1px solid #ccc;
+    }
+    .stAlert {
+        font-size: 1.2rem;
+        text-align:center;
+        padding: 1rem;
+        border-radius: 0.25rem;
+    }
+    h1, h2, h3, h4, h5, h6{
+        color: black;
+        text-align:center;       
+    }
+    label{
+        text-align: center;       
+    }
+    p{
+        font-size:20px;
+        text-align: justify;          
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+st.title('📊 ML DATASET COMPARISON')
 
 st.write("""
- Discover the ultimate machine learning model for your dataset! Dive into our interactive tool to compare top classifiers and see which one reigns supreme.
- 
-Compare top classifiers across diverse datasets to find the best performer for your needs
+Discover the ultimate machine learning model for your dataset! Dive into our interactive tool to compare top classifiers and see which one reigns supreme.
+
+Compare top classifiers across diverse datasets to find the best performer for your needs.
 """)
 
-dataset_name = st.sidebar.selectbox('Select Dataset', ('IRIS', 'BREAST CANCER', 'WINE'))
+dataset_name = st.sidebar.selectbox(
+    'Select Dataset', ('IRIS', 'BREAST CANCER', 'WINE'))
 
 st.write(f"## {dataset_name} DATASET")
 
-classifier_name = st.sidebar.selectbox('SELECT CLASSIFIER', ('KNN', 'SVM', 'RANDOM FOREST'))
+classifier_name = st.sidebar.selectbox(
+    'SELECT CLASSIFIER', ('KNN', 'SVM', 'RANDOM FOREST'))
 
 def get_dataset(name):
     data = None
-    if name == 'Iris':
+    if name == 'IRIS':
         data = datasets.load_iris()
-    elif name == 'Wine':
+    elif name == 'WINE':
         data = datasets.load_wine()
     else:
         data = datasets.load_breast_cancer()
@@ -36,8 +109,8 @@ def get_dataset(name):
     return X, y
 
 X, y = get_dataset(dataset_name)
-st.write('SHAPE OF DATASET:', X.shape)
-st.write('NUMBER OF CLASSES:', len(np.unique(y)))
+st.write('**Shape of dataset:**', X.shape)
+st.write('**Number of classes:**', len(np.unique(y)))
 
 def add_parameter_ui(clf_name):
     params = dict()
@@ -75,19 +148,69 @@ y_pred = clf.predict(X_test)
 
 acc = accuracy_score(y_test, y_pred)
 
-st.write(f'CLASSIFIER = {classifier_name}')
-st.write(f'ACCURACY =', acc)
+st.write(f'**Classifier:** {classifier_name}')
+st.write(f'**Accuracy:** {acc}')
 
+# PCA
 pca = PCA(2)
 X_projected = pca.fit_transform(X)
 
 x1 = X_projected[:, 0]
 x2 = X_projected[:, 1]
 
-fig = plt.figure()
-plt.scatter(x1, x2, c=y, alpha=0.8, cmap='viridis')
+fig, ax = plt.subplots()
+scatter = ax.scatter(x1, x2, c=y, alpha=0.8, cmap='viridis')
+legend1 = ax.legend(*scatter.legend_elements(), title="Classes")
+ax.add_artist(legend1)
 plt.xlabel('Principal Component 1')
 plt.ylabel('Principal Component 2')
-plt.colorbar()
+plt.colorbar(scatter)
 
 st.pyplot(fig)
+
+# Adding more visual elements
+st.markdown("### Key Features")
+st.write("""
+- **Interactive Widgets:** Select datasets and classifiers from the sidebar to dynamically update the content.
+- **Performance Metrics:** View accuracy scores to evaluate model performance.
+- **Visualization:** PCA visualization of dataset classes for easy interpretation.
+""")
+
+st.markdown("### How to Use")
+st.write("""
+1. **Select a Dataset:** Choose from Iris, Breast Cancer, or Wine datasets.
+2. **Choose a Classifier:** Options include K-Nearest Neighbors (KNN), Support Vector Machine (SVM), and Random Forest.
+3. **Set Parameters:** Adjust the hyperparameters for each classifier using the sliders in the sidebar.
+4. **View Results:** See the accuracy score and a PCA scatter plot of the dataset.
+""")
+
+# Adding icons
+st.sidebar.markdown("## Options")
+st.sidebar.write("🎯 Select Dataset")
+st.sidebar.write("🧠 Select Classifier")
+
+st.sidebar.write("## Hyperparameters")
+st.sidebar.write("⚙️ Adjust Parameters")
+
+st.markdown("---")
+st.write("Developed with ❤️ using Streamlit")
+
+# Adding footer
+st.markdown("""
+    <style>
+    footer {visibility: hidden;}
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #f1f1f1;
+        color: black;
+        text-align: center;
+        padding: 10px;
+    }
+    </style>
+    <div class="footer">
+        <p>Developed by [Your Name] with ❤️ using Streamlit</p>
+    </div>
+""", unsafe_allow_html=True)
