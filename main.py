@@ -179,7 +179,7 @@ def get_classifier(clf_name, params):
     if clf_name == 'SVM':
         clf = SVC(C=params['C'])
     elif clf_name == 'KNN':
-        clf = KNeighborsClassifier(n_neighbors=params['ADJUST'])
+        clf = KNeighborsClassifier(n_neighbors=params['ADJUST PARAMETERS'])
     else:
         clf = RandomForestClassifier(n_estimators=params['n_estimators'], max_depth=params['max_depth'], random_state=1234)
     return clf
