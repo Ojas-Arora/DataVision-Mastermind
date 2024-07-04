@@ -229,12 +229,12 @@ st.write("""
 """)
 
 # Adding icons
-st.sidebar.markdown("## Options")
-st.sidebar.write("🎯 Select Dataset")
-st.sidebar.write("🧠 Select Classifier")
+st.sidebar.markdown("## OPTIONS")
+st.sidebar.write("🎯 SELECT DATASET")
+st.sidebar.write("🧠 SELECT CLASSIFIER")
 
-st.sidebar.write("## Hyperparameters")
-st.sidebar.write("⚙️ Adjust Parameters")
+st.sidebar.write("## HYPERPARAMETERS")
+st.sidebar.write("⚙️ ADJUST PARAMETERS")
 
 st.markdown("---")
 st.write("Developed with ❤️ using Streamlit")
