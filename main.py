@@ -17,11 +17,11 @@ st.write("""
 Compare top classifiers across diverse datasets to find the best performer for your needs
 """)
 
-dataset_name = st.sidebar.selectbox('Select Dataset', ('Iris', 'Breast Cancer', 'Wine'))
+dataset_name = st.sidebar.selectbox('Select Dataset', ('IRIS', 'BREAST CANCER', 'WINE'))
 
 st.write(f"## {dataset_name} Dataset")
 
-classifier_name = st.sidebar.selectbox('Select classifier', ('KNN', 'SVM', 'Random Forest'))
+classifier_name = st.sidebar.selectbox('Select classifier', ('KNN', 'SVM', 'RANDOM FOREST'))
 
 def get_dataset(name):
     data = None
