@@ -194,7 +194,8 @@ st.sidebar.write("⚙️ Adjust Parameters")
 
 st.markdown("---")
 st.write("Developed with ❤️ using Streamlit")
-
+st.markdown("---")
+st.markdown("---")
 # Adding footer
 st.markdown("""
     <style>
@@ -211,6 +212,6 @@ st.markdown("""
     }
     </style>
     <div class="footer">
-        <p>Developed by [Your Name] with ❤️ using Streamlit</p>
+        <p>Developed by Ojas Arora with ❤️ using Streamlit</p>
     </div>
 """, unsafe_allow_html=True)
