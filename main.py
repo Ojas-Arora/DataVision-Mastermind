@@ -75,7 +75,7 @@ st.markdown("""
     }
     p{
         font-size:20px;
-        text-align: justify;          
+        text-align: center;          
     }
     </style>
 """, unsafe_allow_html=True)
@@ -212,6 +212,6 @@ st.markdown("""
     }
     </style>
     <div class="footer">
-        <p>                                              Developed by Ojas Arora with ❤️ using Streamlit</p>
+        <p>Developed by Ojas Arora with ❤️ using Streamlit</p>
     </div>
 """, unsafe_allow_html=True)
