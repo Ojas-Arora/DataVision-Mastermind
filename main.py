@@ -136,7 +136,7 @@ Compare top classifiers across diverse datasets to find the best performer for y
 dataset_name = st.sidebar.selectbox(
     '🎯 SELECT DATASET', ('IRIS', 'BREAST CANCER', 'WINE'))
 
-st.write(f"## {dataset_name} 📊DATASET")
+st.write(f"## {dataset_name} DATASET")
 
 classifier_name = st.sidebar.selectbox(
     '🧠 SELECT CLASSIFIER', ('KNN', 'SVM', 'RANDOM FOREST'))
@@ -179,7 +179,7 @@ def get_classifier(clf_name, params):
     if clf_name == 'SVM':
         clf = SVC(C=params['C'])
     elif clf_name == 'KNN':
-        clf = KNeighborsClassifier(n_neighbors=params['ADJUST PARAMETERS'])
+        clf = KNeighborsClassifier(n_neighbors=params['ADJUST'])
     else:
         clf = RandomForestClassifier(n_estimators=params['n_estimators'], max_depth=params['max_depth'], random_state=1234)
     return clf
