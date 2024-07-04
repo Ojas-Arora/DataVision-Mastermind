@@ -36,8 +36,8 @@ def get_dataset(name):
     return X, y
 
 X, y = get_dataset(dataset_name)
-st.write('Shape of dataset:', X.shape)
-st.write('Number of classes:', len(np.unique(y)))
+st.write('SHAPE OF DATASET:', X.shape)
+st.write('NUMBER OF CLASSES:', len(np.unique(y)))
 
 def add_parameter_ui(clf_name):
     params = dict()
@@ -75,8 +75,8 @@ y_pred = clf.predict(X_test)
 
 acc = accuracy_score(y_test, y_pred)
 
-st.write(f'Classifier = {classifier_name}')
-st.write(f'Accuracy =', acc)
+st.write(f'CLASSIFIER = {classifier_name}')
+st.write(f'ACCURACY =', acc)
 
 pca = PCA(2)
 X_projected = pca.fit_transform(X)
