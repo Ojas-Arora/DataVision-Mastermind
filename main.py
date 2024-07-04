@@ -214,14 +214,14 @@ plt.colorbar(scatter)
 st.pyplot(fig)
 
 # Adding more visual elements
-st.markdown("### KEY FEATURES")
+st.markdown("### 🎯KEY FEATURES")
 st.write("""
 - **INTERACTIVE WIDGETS:** Select datasets and classifiers from the sidebar to dynamically update the content.
 - **PERFORMANCE METRICES:** View accuracy scores to evaluate model performance.
 - **VISUIZATION:** PCA visualization of dataset classes for easy interpretation.
 """)
 
-st.markdown("### HOW TO USE")
+st.markdown("### 🧠 HOW TO USE")
 st.write("""
 1. **SELECT A DATASET:** Choose from Iris, Breast Cancer, or Wine datasets.
 2. **CHOOSE A CLASSIFIER:** Options include K-Nearest Neighbors (KNN), Support Vector Machine (SVM), and Random Forest.
