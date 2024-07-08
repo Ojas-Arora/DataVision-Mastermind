@@ -69,16 +69,16 @@ st.markdown("""
         padding: 1rem;
         border-radius: 0.25rem;
     }
-    h1, h2, h3, h4, h5, h6 {
-        color: purple;
+    h1, h2, h3, h4, h5, h6{
+        color: black;
         text-align: center;
         text-transform: uppercase;       
     }
-    label {
+    label{
         text-align: center;       
     }
-    p {
-        font-size: 20px;
+    p{
+        font-size:20px;
         text-align: center;          
     }
     .sidebar-content {
@@ -97,9 +97,6 @@ st.markdown("""
         color: black;
         text-align: center;
         padding: 10px;
-    }
-    .gap {
-        margin-bottom: 2rem;
     }
     </style>
     <div class="footer">
@@ -192,53 +189,10 @@ ax.add_artist(legend1)
 plt.xlabel('Principal Component 1')
 plt.ylabel('Principal Component 2')
 plt.colorbar(scatter)
+
 st.pyplot(fig)
-st.markdown('<div class="gap"></div>', unsafe_allow_html=True)
 
-def plot_histograms(X, y):
-    df = pd.DataFrame(X)
-    df['target'] = y
-    fig, ax = plt.subplots(figsize=(10, 6))
-    sns.histplot(df, x=df.columns[0], hue='target', multiple="stack", ax=ax)
-    st.pyplot(fig)
-    st.markdown('<div class="gap"></div>', unsafe_allow_html=True)
-
-def plot_boxplot(X, y):
-    df = pd.DataFrame(X)
-    df['target'] = y
-    fig, ax = plt.subplots(figsize=(10, 6))
-    sns.boxplot(x='target', y=df.columns[0], data=df, ax=ax)
-    st.pyplot(fig)
-    st.markdown('<div class="gap"></div>', unsafe_allow_html=True)
-
-def plot_pairplot(X, y):
-    df = pd.DataFrame(X)
-    df['target'] = y
-    sns.pairplot(df, hue='target', palette='viridis')
-    st.pyplot(plt)
-    st.markdown('<div class="gap"></div>', unsafe_allow_html=True)
-
-def plot_correlation_matrix(X):
-    df = pd.DataFrame(X)
-    fig, ax = plt.subplots(figsize=(10, 6))
-    sns.heatmap(df.corr(), annot=True, fmt=".2f", cmap='coolwarm', ax=ax)
-    st.pyplot(fig)
-    st.markdown('<div class="gap"></div>', unsafe_allow_html=True)
-
-def plot_scatter_matrix(X, y):
-    df = pd.DataFrame(X)
-    df['target'] = y
-    sns.pairplot(df, hue='target', palette='viridis')
-    st.pyplot(plt)
-    st.markdown('<div class="gap"></div>', unsafe_allow_html=True)
-
-# Call additional graph functions
-plot_histograms(X, y)
-plot_boxplot(X, y)
-plot_pairplot(X, y)
-plot_correlation_matrix(X)
-plot_scatter_matrix(X, y)
-
+# Adding more visual elements and additional graphs
 st.markdown("### 🎯KEY FEATURES")
 st.write("""
 - **INTERACTIVE WIDGETS:** Select datasets and classifiers from the sidebar to dynamically update the content.
@@ -253,3 +207,47 @@ st.write("""
 3. **SET PARAMETERS:** Adjust the hyperparameters for each classifier using the sliders in the sidebar.
 4. **VIEW RESULTS:** See the accuracy score and a PCA scatter plot of the dataset.
 """)
+
+def plot_histograms(X, y):
+    df = pd.DataFrame(X)
+    df['target'] = y
+    num_features = len(df.columns) - 1
+    fig, axes = plt.subplots(num_features, 1, figsize=(10, num_features * 4))
+    for i in range(num_features):
+        sns.histplot(df, x=i, hue='target', multiple="stack", ax=axes[i])
+        axes[i].set_title(f'Feature {i} Distribution')
+    st.pyplot(fig)
+
+def plot_boxplots(X, y):
+    df = pd.DataFrame(X)
+    df['target'] = y
+    num_features = len(df.columns) - 1
+    fig, axes = plt.subplots(num_features, 1, figsize=(10, num_features * 4))
+    for i in range(num_features):
+        sns.boxplot(x='target', y=i, data=df, ax=axes[i])
+        axes[i].set_title(f'Feature {i} Boxplot')
+    st.pyplot(fig)
+
+def plot_pairplot(X, y):
+    df = pd.DataFrame(X)
+    df['target'] = y
+    sns.pairplot(df, hue='target', palette='viridis')
+    st.pyplot(plt)
+
+# Call additional graph functions based on dataset
+if dataset_name == 'IRIS':
+    plot_histograms(X, y)
+    plot_boxplots(X, y)
+    plot_pairplot(X, y)
+elif dataset_name == 'WINE':
+    plot_histograms(X, y)
+    plot_boxplots(X, y)
+    plot_pairplot(X, y)
+else:
+    plot_histograms(X, y)
+    plot_boxplots(X, y)
+    plot_pairplot(X, y)
+
+st.markdown("---")
+st.write("Developed with ❤️ using Streamlit")
+st.markdown("---")
