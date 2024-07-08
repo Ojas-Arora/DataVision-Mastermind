@@ -1,6 +1,8 @@
 import streamlit as st
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.decomposition import PCA
@@ -80,52 +82,26 @@ st.markdown("""
         text-align: center;          
     }
     .sidebar-content {
-        color: white !important;
+        color: white;
     }
     .sidebar-content > div {
-        color: white !important;
+        color: white;
     }
-    .stAlert {
-        font-size: 1.2rem;
-        text-align:center;
-        padding: 1rem;
-        border-radius: 0.25rem;
-    }
-    .stTextInput>div>div>input {
-        font-size: 1rem;
-        text-align:center;
-        padding: 0.5rem;
-        border-radius: 0.25rem;
-        border: 1px solid #ccc;
-    }
-    .stSelectbox>div>div>select {
-        font-size: 1rem;
-        text-align:center;
-        padding: 0.5rem;
-        border-radius: 0.25rem;
-        border: 1px solid #ccc;
-    }
-    .stSlider>div>div>div>div>div>div {
-        font-size: 1rem;
-        text-align:center;
-    }
-    .stNumberInput>div>div>input {
-        font-size: 1rem;
-        text-align:center;
-        padding: 0.5rem;
-        border-radius: 0.25rem;
-        border: 1px solid #ccc;
-    }
-    .sidebar-content {
-        color: white ;
-    }
-    .sidebar.markdown{
-        color: white ;
-    }
-    .sidebar-content > div {
-        color: white ;
+    footer {visibility: hidden;}
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #f1f1f1;
+        color: black;
+        text-align: center;
+        padding: 10px;
     }
     </style>
+    <div class="footer">
+        <p>Developed by Ojas Arora with ❤️ using <a href="https://streamlit.io/" target="_blank">Streamlit</a></p>
+    </div>
 """, unsafe_allow_html=True)
 
 st.title('📊 ML DATASET COMPARISON')
@@ -216,12 +192,12 @@ plt.colorbar(scatter)
 
 st.pyplot(fig)
 
-# Adding more visual elements
+# Adding more visual elements and additional graphs
 st.markdown("### 🎯KEY FEATURES")
 st.write("""
 - **INTERACTIVE WIDGETS:** Select datasets and classifiers from the sidebar to dynamically update the content.
 - **PERFORMANCE METRICES:** View accuracy scores to evaluate model performance.
-- **VISUIZATION:** PCA visualization of dataset classes for easy interpretation.
+- **VISUALIZATION:** PCA visualization of dataset classes for easy interpretation.
 """)
 
 st.markdown("### 🧠 HOW TO USE")
@@ -232,35 +208,46 @@ st.write("""
 4. **VIEW RESULTS:** See the accuracy score and a PCA scatter plot of the dataset.
 """)
 
-# Adding icons
-st.sidebar.markdown("## OPTIONS")
-st.sidebar.write("🎯 SELECT DATASET")
-st.sidebar.write("🧠 SELECT CLASSIFIER")
+def plot_histograms(X, y):
+    df = pd.DataFrame(X)
+    df['target'] = y
+    num_features = len(df.columns) - 1
+    fig, axes = plt.subplots(num_features, 1, figsize=(10, num_features * 4))
+    for i in range(num_features):
+        sns.histplot(df, x=i, hue='target', multiple="stack", ax=axes[i])
+        axes[i].set_title(f'Feature {i} Distribution')
+    st.pyplot(fig)
 
-st.sidebar.write("## HYPERPARAMETERS")
-st.sidebar.write("⚙️ ADJUST PARAMETERS")
+def plot_boxplots(X, y):
+    df = pd.DataFrame(X)
+    df['target'] = y
+    num_features = len(df.columns) - 1
+    fig, axes = plt.subplots(num_features, 1, figsize=(10, num_features * 4))
+    for i in range(num_features):
+        sns.boxplot(x='target', y=i, data=df, ax=axes[i])
+        axes[i].set_title(f'Feature {i} Boxplot')
+    st.pyplot(fig)
+
+def plot_pairplot(X, y):
+    df = pd.DataFrame(X)
+    df['target'] = y
+    sns.pairplot(df, hue='target', palette='viridis')
+    st.pyplot()
+
+# Call additional graph functions based on dataset
+if dataset_name == 'IRIS':
+    plot_histograms(X, y)
+    plot_boxplots(X, y)
+    plot_pairplot(X, y)
+elif dataset_name == 'WINE':
+    plot_histograms(X, y)
+    plot_boxplots(X, y)
+    plot_pairplot(X, y)
+else:
+    plot_histograms(X, y)
+    plot_boxplots(X, y)
+    plot_pairplot(X, y)
 
 st.markdown("---")
 st.write("Developed with ❤️ using Streamlit")
 st.markdown("---")
-st.markdown("---")
-# Adding footer
-st.markdown("""
-    <style>
-    footer {visibility: hidden;}
-    .footer {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        background-color: #f1f1f1;
-        color: black;
-        text-align: center;
-        padding: 10px;
-    }
-    </style>
-    <div class="footer">
-        <p>Developed by Ojas Arora with ❤️ using <a href="https://streamlit.io/" target="_blank">Streamlit</a></p>
-    </div>
-""", unsafe_allow_html=True)
-
