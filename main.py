@@ -234,24 +234,6 @@ plt.ylabel('Frequency')
 st.pyplot(fig)
 st.write("\n")
 
-# Box Plot
-st.markdown("### Box Plot")
-fig, ax = plt.subplots(figsize=(12, 6))
-df.drop(columns=['Target']).plot(kind='box', ax=ax)
-plt.title('Feature Box Plot')
-plt.xlabel('Features')
-plt.ylabel('Value')
-st.pyplot(fig)
-st.write("\n")
-
-# Heatmap
-st.markdown("### Heatmap")
-fig, ax = plt.subplots(figsize=(12, 6))
-sns.heatmap(df.corr(), annot=True, cmap='viridis', ax=ax)
-plt.title('Feature Correlation Heatmap')
-st.pyplot(fig)
-st.write("\n")
-
 # Adding more visual elements
 st.markdown("### 🎯KEY FEATURES")
 st.write("""
