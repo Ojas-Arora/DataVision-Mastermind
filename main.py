@@ -1,8 +1,6 @@
 import streamlit as st
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.decomposition import PCA
@@ -156,9 +154,6 @@ def get_dataset(name):
     return X, y
 
 X, y = get_dataset(dataset_name)
-df = pd.DataFrame(X, columns=[f"Feature {i+1}" for i in range(X.shape[1])])
-df['Target'] = y
-
 st.write('**SHAPE OF DATASET:**', X.shape)
 st.write('**NUMBER OF CLASSES:**', len(np.unique(y)))
 
@@ -215,24 +210,8 @@ ax.add_artist(legend1)
 plt.xlabel('Principal Component 1')
 plt.ylabel('Principal Component 2')
 plt.colorbar(scatter)
-st.pyplot(fig)
-st.write("\n")
 
-# Pair Plot
-st.markdown("### Pair Plot")
-fig = sns.pairplot(df, hue='Target', palette='viridis')
 st.pyplot(fig)
-st.write("\n")
-
-# Histograms
-st.markdown("### Histograms")
-fig, ax = plt.subplots(figsize=(12, 6))
-df.drop(columns=['Target']).plot(kind='hist', bins=30, alpha=0.7, ax=ax)
-plt.title('Feature Distributions')
-plt.xlabel('Value')
-plt.ylabel('Frequency')
-st.pyplot(fig)
-st.write("\n")
 
 # Adding more visual elements
 st.markdown("### 🎯KEY FEATURES")
@@ -281,3 +260,4 @@ st.markdown("""
         <p>Developed by Ojas Arora with ❤️ using <a href="https://streamlit.io/" target="_blank">Streamlit</a></p>
     </div>
 """, unsafe_allow_html=True)
+
