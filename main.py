@@ -7,7 +7,7 @@ from sklearn.decomposition import PCA
 from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, plot_confusion_matrix
 
 # Set page config
 st.set_page_config(page_title="ML DATASET COMPARISON", page_icon="📊", layout="wide")
@@ -213,12 +213,36 @@ plt.colorbar(scatter)
 
 st.pyplot(fig)
 
+# Plotting Accuracy vs Parameter
+if classifier_name == 'SVM':
+    param_range = np.linspace(0.01, 10.0, 10)
+    accuracy_values = []
+    for param in param_range:
+        clf = SVC(C=param)
+        clf.fit(X_train, y_train)
+        y_pred = clf.predict(X_test)
+        acc = accuracy_score(y_test, y_pred)
+        accuracy_values.append(acc)
+    
+    fig_param, ax_param = plt.subplots()
+    ax_param.plot(param_range, accuracy_values, marker='o')
+    ax_param.set_xlabel('C')
+    ax_param.set_ylabel('Accuracy')
+    ax_param.set_title('Accuracy vs C for SVM')
+    st.pyplot(fig_param)
+
+# Confusion Matrix
+fig_cm, ax_cm = plt.subplots()
+plot_confusion_matrix(clf, X_test, y_test, ax=ax_cm)
+ax_cm.set_title('Confusion Matrix')
+st.pyplot(fig_cm)
+
 # Adding more visual elements
 st.markdown("### 🎯KEY FEATURES")
 st.write("""
 - **INTERACTIVE WIDGETS:** Select datasets and classifiers from the sidebar to dynamically update the content.
-- **PERFORMANCE METRICES:** View accuracy scores to evaluate model performance.
-- **VISUIZATION:** PCA visualization of dataset classes for easy interpretation.
+- **PERFORMANCE METRICES:** View accuracy scores and confusion matrices to evaluate model performance.
+- **VISUALIZATION:** PCA visualization of dataset classes for easy interpretation.
 """)
 
 st.markdown("### 🧠 HOW TO USE")
@@ -226,7 +250,7 @@ st.write("""
 1. **SELECT A DATASET:** Choose from Iris, Breast Cancer, or Wine datasets.
 2. **CHOOSE A CLASSIFIER:** Options include K-Nearest Neighbors (KNN), Support Vector Machine (SVM), and Random Forest.
 3. **SET PARAMETERS:** Adjust the hyperparameters for each classifier using the sliders in the sidebar.
-4. **VIEW RESULTS:** See the accuracy score and a PCA scatter plot of the dataset.
+4. **VIEW RESULTS:** See the accuracy score, accuracy vs parameter plot, confusion matrix, and a PCA scatter plot of the dataset.
 """)
 
 # Adding icons
@@ -260,4 +284,3 @@ st.markdown("""
         <p>Developed by Ojas Arora with ❤️ using <a href="https://streamlit.io/" target="_blank">Streamlit</a></p>
     </div>
 """, unsafe_allow_html=True)
-
