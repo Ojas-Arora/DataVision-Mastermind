@@ -213,6 +213,18 @@ plt.colorbar(scatter)
 
 st.pyplot(fig)
 
+# Additional graphs
+for i in range(4):
+    fig, ax = plt.subplots()
+    scatter = ax.scatter(x1, x2, c=y, alpha=0.8, cmap='viridis')
+    legend1 = ax.legend(*scatter.legend_elements(), title="Classes")
+    ax.add_artist(legend1)
+    plt.xlabel('Principal Component 1')
+    plt.ylabel('Principal Component 2')
+    plt.colorbar(scatter)
+    st.pyplot(fig)
+    st.write("\n")
+
 # Adding more visual elements
 st.markdown("### 🎯KEY FEATURES")
 st.write("""
@@ -260,4 +272,3 @@ st.markdown("""
         <p>Developed by Ojas Arora with ❤️ using <a href="https://streamlit.io/" target="_blank">Streamlit</a></p>
     </div>
 """, unsafe_allow_html=True)
-
