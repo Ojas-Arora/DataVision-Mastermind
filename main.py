@@ -1,6 +1,8 @@
 import streamlit as st
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.decomposition import PCA
@@ -154,6 +156,9 @@ def get_dataset(name):
     return X, y
 
 X, y = get_dataset(dataset_name)
+df = pd.DataFrame(X, columns=[f"Feature {i+1}" for i in range(X.shape[1])])
+df['Target'] = y
+
 st.write('**SHAPE OF DATASET:**', X.shape)
 st.write('**NUMBER OF CLASSES:**', len(np.unique(y)))
 
@@ -210,20 +215,42 @@ ax.add_artist(legend1)
 plt.xlabel('Principal Component 1')
 plt.ylabel('Principal Component 2')
 plt.colorbar(scatter)
-
 st.pyplot(fig)
+st.write("\n")
 
-# Additional graphs
-for i in range(4):
-    fig, ax = plt.subplots()
-    scatter = ax.scatter(x1, x2, c=y, alpha=0.8, cmap='viridis')
-    legend1 = ax.legend(*scatter.legend_elements(), title="Classes")
-    ax.add_artist(legend1)
-    plt.xlabel('Principal Component 1')
-    plt.ylabel('Principal Component 2')
-    plt.colorbar(scatter)
-    st.pyplot(fig)
-    st.write("\n")
+# Pair Plot
+st.markdown("### Pair Plot")
+fig = sns.pairplot(df, hue='Target', palette='viridis')
+st.pyplot(fig)
+st.write("\n")
+
+# Histograms
+st.markdown("### Histograms")
+fig, ax = plt.subplots(figsize=(12, 6))
+df.drop(columns=['Target']).plot(kind='hist', bins=30, alpha=0.7, ax=ax)
+plt.title('Feature Distributions')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+st.pyplot(fig)
+st.write("\n")
+
+# Box Plot
+st.markdown("### Box Plot")
+fig, ax = plt.subplots(figsize=(12, 6))
+df.drop(columns=['Target']).plot(kind='box', ax=ax)
+plt.title('Feature Box Plot')
+plt.xlabel('Features')
+plt.ylabel('Value')
+st.pyplot(fig)
+st.write("\n")
+
+# Heatmap
+st.markdown("### Heatmap")
+fig, ax = plt.subplots(figsize=(12, 6))
+sns.heatmap(df.corr(), annot=True, cmap='viridis', ax=ax)
+plt.title('Feature Correlation Heatmap')
+st.pyplot(fig)
+st.write("\n")
 
 # Adding more visual elements
 st.markdown("### 🎯KEY FEATURES")
