@@ -16,7 +16,7 @@ st.set_page_config(page_title="ML DATASET COMPARISON", page_icon="📊", layout=
 st.markdown("""
     <style>
     .main {
-        background-image: url('https://files.123freevectors.com/wp-content/original/154027-abstract-blue-and-white-background-design.jpg');
+        background-image: url('https://wallpapers.com/images/hd/abstract-blueish-white-color-nrvpjoky2673bptv.jpg');
         background-color: #f0f2f6;
         color: #333;
         font-family: 'Roboto', sans-serif;
