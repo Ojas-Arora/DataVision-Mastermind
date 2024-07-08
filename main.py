@@ -119,7 +119,7 @@ st.markdown("""
     .sidebar-content {
         color: white ;
     }
-    .sidebar-markdown{
+    .sidebar.markdown{
         color: white ;
     }
     .sidebar-content > div {
