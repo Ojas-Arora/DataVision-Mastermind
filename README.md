@@ -1,4 +1,4 @@
-                                                              MLDatasetComparison
+                                              MLDatasetComparison
 ![image](https://github.com/Ojas-Arora/MLDatasetComparison/assets/127867874/9272bfac-0225-4d37-bb04-4bc177b795ca)
 
 ![image](https://github.com/Ojas-Arora/MLDatasetComparison/assets/127867874/05ae3154-5c61-4dd7-83cb-720a115b7db0)
