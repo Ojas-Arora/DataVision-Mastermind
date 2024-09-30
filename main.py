@@ -283,7 +283,7 @@ st.sidebar.markdown('<h2 style="color: darkturquoise;">OPTIONS</h2>', unsafe_all
 st.sidebar.write("🎯 SELECT DATASET")
 st.sidebar.write("🧠 SELECT CLASSIFIER")
 
-st.sidebar.write("## HYPERPARAMETERS")
+st.sidebar.markdown('<h2 style="color: darkturquoise;">HYPERPARAMETERS</h2>', unsafe_allow_html=True)
 st.sidebar.write("⚙️ ADJUST PARAMETERS")
 
 st.markdown("---")
