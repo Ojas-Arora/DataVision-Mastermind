@@ -279,7 +279,7 @@ st.write("""
 """)
 
 # Adding icons
-st.sidebar.markdown("## OPTIONS")
+st.sidebar.markdown('<h2 style="color: darkturquoise;">OPTIONS</h2>', unsafe_allow_html=True)
 st.sidebar.write("🎯 SELECT DATASET")
 st.sidebar.write("🧠 SELECT CLASSIFIER")
 
