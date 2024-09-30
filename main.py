@@ -142,10 +142,11 @@ st.title('📊 ML DATASET COMPARISON')
 st_lottie(penguin_animation, speed=1, height=400, key="penguin")
 
 st.write("""
-Discover the ultimate machine learning model for your dataset! Dive into our interactive tool to compare top classifiers and see which one reigns supreme.
+🌟 Discover the ultimate machine learning model for your dataset! Dive into our interactive tool to compare top classifiers and see which one reigns supreme. 
 
-Compare top classifiers across diverse datasets to find the best performer for your needs.
+🔍 Compare top classifiers across diverse datasets to find the best performer for your needs.
 """)
+
 
 dataset_name = st.sidebar.selectbox(
     '🎯 SELECT DATASET', ('IRIS', 'BREAST CANCER', 'WINE'))
