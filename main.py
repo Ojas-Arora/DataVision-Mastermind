@@ -136,7 +136,9 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.title('📊 ML DATASET COMPARISON')
+# Setting the title with a specific color
+st.markdown('<h1 style="color: darkturquoise;">📊 ML DATASET COMPARISON</h1>', unsafe_allow_html=True)
+
 
 # Lottie animation for penguins
 st_lottie(penguin_animation, speed=1, height=400, key="penguin")
