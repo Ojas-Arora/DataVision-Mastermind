@@ -278,7 +278,7 @@ st.write("""
 - **VISUALIZATION:** PCA visualization of dataset classes for easy interpretation.
 """)
 
-st.markdown("### 🧠 HOW TO USE")
+st.markdown('<h3 style="color: darkturquoise;">🧠 HOW TO USE</h3>', unsafe_allow_html=True)
 st.write("""
 1. **SELECT A DATASET:** Choose from Iris, Breast Cancer, or Wine datasets.
 2. **CHOOSE A CLASSIFIER:** Options include K-Nearest Neighbors (KNN), Support Vector Machine (SVM), and Random Forest.
