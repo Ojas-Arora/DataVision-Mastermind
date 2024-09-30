@@ -150,10 +150,14 @@ st.write("""
 """)
 
 
+# Selecting a dataset from the sidebar
 dataset_name = st.sidebar.selectbox(
-    '🎯 SELECT DATASET', ('IRIS', 'BREAST CANCER', 'WINE'))
+    '🎯 SELECT DATASET', ('IRIS', 'BREAST CANCER', 'WINE')
+)
 
-st.write(f"## {dataset_name} DATASET")
+# Displaying the selected dataset name with a specific color
+st.markdown(f"<h2 style='color: darkturquoise;'>{dataset_name} DATASET</h2>", unsafe_allow_html=True)
+
 
 classifier_name = st.sidebar.selectbox(
     '🧠 SELECT CLASSIFIER', ('KNN', 'SVM', 'RANDOM FOREST'))
