@@ -150,10 +150,14 @@ st.write("""
 """)
 
 
+# Setting a colored header for the dataset selection
+st.sidebar.markdown('<h4 style="color: darkturquoise;">🎯 SELECT DATASET</h4>', unsafe_allow_html=True)
+
 # Selecting a dataset from the sidebar
 dataset_name = st.sidebar.selectbox(
-    '🎯 SELECT DATASET', ('IRIS', 'BREAST CANCER', 'WINE')
+    '', ('IRIS', 'BREAST CANCER', 'WINE')  # Empty string for the label
 )
+
 
 # Displaying the selected dataset name with a specific color
 st.markdown(f"<h2 style='color: darkturquoise;'>{dataset_name} DATASET</h2>", unsafe_allow_html=True)
