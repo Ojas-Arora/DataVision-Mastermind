@@ -21,7 +21,7 @@ def load_lottie_url(url: str):
 penguin_animation = load_lottie_url("https://assets9.lottiefiles.com/packages/lf20_jcikwtux.json")
 
 # Set page config
-st.set_page_config(page_title="ML DATASET COMPARISON", page_icon="📊", layout="wide")
+st.set_page_config(page_title="DataVision Mastermind", page_icon="💡", layout="wide")
 
 # Custom CSS for better styling
 st.markdown("""
@@ -137,7 +137,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Setting the title with a specific color
-st.markdown('<h1 style="color: darkturquoise;">📊 ML DATASET COMPARISON</h1>', unsafe_allow_html=True)
+st.markdown('<h1 style="color: darkturquoise;">🔮 DataVision Mastermind</h1>', unsafe_allow_html=True)
 
 
 # Lottie animation for penguins
