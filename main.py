@@ -269,7 +269,9 @@ plt.tight_layout()
 st.pyplot(fig_cm)
 
 # Adding more visual elements
-st.markdown("### 🎯KEY FEATURES")
+# Displaying the "KEY FEATURES" header with a specific color
+st.markdown('<h3 style="color: darkturquoise;">🎯 KEY FEATURES</h3>', unsafe_allow_html=True)
+
 st.write("""
 - **INTERACTIVE WIDGETS:** Select datasets and classifiers from the sidebar to dynamically update the content.
 - **PERFORMANCE METRICS:** View accuracy scores and confusion matrices to evaluate model performance.
