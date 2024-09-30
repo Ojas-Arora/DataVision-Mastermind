@@ -8,18 +8,6 @@ from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix
-import requests
-from streamlit_lottie import st_lottie
-
-# Load Lottie Animation
-def load_lottie_url(url: str):
-    r = requests.get(url)
-    if r.status_code != 200:
-        return None
-    return r.json()
-
-penguin_animation = load_lottie_url("https://assets9.lottiefiles.com/packages/lf20_jcikwtux.json")
-
 
 # Set page config
 st.set_page_config(page_title="ML DATASET COMPARISON", page_icon="📊", layout="wide")
