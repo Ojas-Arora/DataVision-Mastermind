@@ -295,9 +295,7 @@ st.sidebar.markdown('<h2 style="color: darkturquoise;">HYPERPARAMETERS</h2>', un
 st.sidebar.write("⚙️ ADJUST PARAMETERS")
 
 st.markdown("---")
-st.write("Developed with ❤️ using Streamlit")
-st.markdown("---")
-st.markdown("---")
+
 # Adding footer
 st.markdown("""
     <style>
