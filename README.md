@@ -1,9 +1,10 @@
-                                              MLDatasetComparison
-![image](https://github.com/Ojas-Arora/MLDatasetComparison/assets/127867874/9272bfac-0225-4d37-bb04-4bc177b795ca)
+                                              DataVision Mastermind
+![image](https://github.com/user-attachments/assets/46474ad8-bc04-4a06-979d-1813de2eebde)
 
-![image](https://github.com/Ojas-Arora/MLDatasetComparison/assets/127867874/05ae3154-5c61-4dd7-83cb-720a115b7db0)
+![image](https://github.com/user-attachments/assets/04f388a8-dbaf-4c8b-9cfa-43a7538cd160)
 
-![image](https://github.com/Ojas-Arora/MLDatasetComparison/assets/127867874/f0f40ff8-57c6-436b-ab91-81dbb26bfef8)
+![image](https://github.com/user-attachments/assets/2620045d-d549-4325-8dc2-c0128611bb73)
+
 
 MLDatasetComparison is an interactive tool built with Streamlit for comparing machine learning classifiers across different datasets. It allows users to select from various datasets (IRIS, Breast Cancer, Wine) and classifiers (KNN, SVM, Random Forest), tune hyperparameters, and visualize results using PCA scatter plots.
 
