@@ -45,7 +45,7 @@ IV. Contributing
 
 Contributions are welcome! Please fork the repository and submit pull requests.
 
-1. Fork the project (https://github.com/Ojas-Arora/MLDatasetComparison/fork)
+1. Fork the project (https://github.com/Ojas-Arora/DataVision-Mastermind/fork)
 2. Create your feature branch (git checkout -b feature/AmazingFeature)
 3. Commit your changes (git commit -am 'Add some AmazingFeature')
 4. Push to the branch (git push origin feature/AmazingFeature)
